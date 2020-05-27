@@ -1,15 +1,15 @@
 # ==============================================================================
+from L3Out import ModularL3Out
+from configparser import ConfigParser
 import os
 import sys
 import requests
 import json
-from L3Out import ModularL3Out
 import openpyxl
 import warnings
 import urllib3
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
 # ==============================================================================
 
 # ==============================================================================
@@ -18,11 +18,9 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 if os.path.dirname(sys.argv[0]) != "":
     os.chdir(os.path.dirname(sys.argv[0]))
 
-
 # ==============================================================================
 # init ACI & login
 # ==============================================================================
-from configparser import ConfigParser
 config = ConfigParser()
 config.read("settings.conf")
 apicIp = config.get("APIC", "ip")
