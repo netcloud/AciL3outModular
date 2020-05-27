@@ -1,6 +1,9 @@
 # ACI Modular L3Out
 
 Python Module for configuring ACI L3Outs on a Modular bases.
+Currently Supported is Static- and BGP-Routing (inclusive Multicast). 
+The Module Provide an abstraction Layer in Form of Python Objects and gives back 
+the JSON which could be posted to the APIC.
 
 ## Getting Started
 
