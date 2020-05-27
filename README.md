@@ -35,7 +35,7 @@ Tests are under constructions;-)))
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/netcloudag/AciL3outModular/CONTRIBUTING.md) for details on our code 
+Please read [CONTRIBUTING.md](https://github.com/netcloudag/AciL3outModular/blob/master/CONTRIBUTING.md) for details on our code 
 of conduct, and the process for submitting pull requests to this project.
 
 ## Versioning
@@ -48,4 +48,4 @@ For the versions available, see the [tags on this repository](https://github.com
 
 ## License
 
-Please - see the [LICENSE.md](https://github.com/netcloudag/AciL3outModular/LICENSE.md) file for details. 
+Please - see the [LICENSE.md](https://github.com/netcloudag/AciL3outModular/blob/master/LICENSE.md) file for details. 
