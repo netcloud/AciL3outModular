@@ -13,6 +13,7 @@ import openpyxl
 if os.path.dirname(sys.argv[0]) != "":
     os.chdir(os.path.dirname(sys.argv[0]))
 
+
 # ==============================================================================
 # check excel-content
 # ==============================================================================
@@ -56,21 +57,18 @@ if __name__ == '__main__':
 
     Tenant = "TN-PROD"
     Contract = "CT-PERMIT-ALL"
+
     Path1 = "topology/pod-1/node-111"
     Paths1 = "topology/pod-1/paths-111/pathep-[eth1/50]"
-    Paths1MTier = "topology/pod-1/paths-111/pathep-[eth1/49]"
 
     Path2 = "topology/pod-1/node-112"
     Paths2 = "topology/pod-1/paths-112/pathep-[eth1/50]"
-    Paths2MTier = "topology/pod-1/paths-112/pathep-[eth1/49]"
 
     Path3 = "topology/pod-1/node-211"
     Paths3 = "topology/pod-1/paths-211/pathep-[eth1/50]"
-    Paths3MTier = "topology/pod-1/paths-211/pathep-[eth1/49]"
 
     Path4 = "topology/pod-1/node-212"
     Paths4 = "topology/pod-1/paths-212/pathep-[eth1/50]"
-    Paths4MTier = "topology/pod-1/paths-212/pathep-[eth1/49]"
 
     Lo1 = "10.10.20.128"
     Lo2 = "10.10.20.129"
@@ -95,7 +93,6 @@ if __name__ == '__main__':
         L3Out2Post.externalEpg().setProvideContract(Contract)
         L3Out2Post.externalEpg().setL3ExtSubnet()
         L3Out2Post.setEnableBgp()
-
 
         L3Out2Post.setNodeProfile(item["NP"])
         L3Out2Post.nodeProfile().setNode(Path1, Lo1)
