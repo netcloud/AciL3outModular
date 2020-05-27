@@ -1,10 +1,15 @@
 # ==============================================================================
-# modules
-# ==============================================================================
 import os
 import sys
+import requests
+import json
 from L3Out import ModularL3Out
 import openpyxl
+import warnings
+import urllib3
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 # ==============================================================================
 
 # ==============================================================================
@@ -12,6 +17,53 @@ import openpyxl
 # ==============================================================================
 if os.path.dirname(sys.argv[0]) != "":
     os.chdir(os.path.dirname(sys.argv[0]))
+
+
+# ==============================================================================
+# init ACI & login
+# ==============================================================================
+from configparser import ConfigParser
+config = ConfigParser()
+config.read("settings.conf")
+apicIp = config.get("APIC", "ip")
+apicUrl = 'https://' + apicIp + '/api/'
+apicUser = config.get("APIC", "user")
+apicPw = config.get("APIC", "password")
+
+# create reqeuests session
+session = requests.Session()
+
+# create credentials structure
+userPass = json.dumps({'aaaUser': {'attributes': {'name': apicUser, 'pwd': apicPw}}})
+
+# login to API
+response = session.post(apicUrl + 'aaaLogin.json', data=userPass, verify=False, timeout=10)
+
+token = None
+
+# Error Handling
+if response.status_code == 401:
+    raise Exception('Unauthorized')
+    # Raise a exception for all other 4xx and 5xx status_codes
+elif response.raise_for_status():
+    raise Exception('Error occured: ' + response.status_code)
+else:
+    token = response.json()['imdata'][0]['aaaLogin']['attributes']['token']
+
+
+# ==============================================================================
+# postJson
+# ==============================================================================
+def postJson(jsonData, url='mo.json'):
+    response = session.post(apicUrl + url, verify=False, data=json.dumps(jsonData, sort_keys=True))
+
+    if response.raise_for_status:
+        if response.status_code == 200:
+            return response.status_code
+        elif response.status_code == 400:
+            return '400: ' + response.json()['imdata'][0]['error']['attributes']['text']
+        else:
+            return response.status_code
 
 
 # ==============================================================================
@@ -55,7 +107,7 @@ def get_remote_bgp_ip(ip):
 
 if __name__ == '__main__':
 
-    Tenant = "TN-PROD"
+    Tenant = "ModularL3Out"
     Contract = "CT-PERMIT-ALL"
 
     Path1 = "topology/pod-1/node-111"
@@ -82,8 +134,6 @@ if __name__ == '__main__':
     L3Out_Data = get_excel_data()
 
     for item in L3Out_Data:
-
-        Tenant = "TN-PROD"
 
         L3Out2Post = ModularL3Out.L3Out(item["NAME"], Tenant)
         L3Out2Post.setl3domain(item["Dom"])
@@ -131,4 +181,8 @@ if __name__ == '__main__':
         L3Out2Post.nodeProfile().Int().intNode().bgpPeer().setBgpAS(AST1)
         L3Out2Post.nodeProfile().Int().intNode().bgpPeer().setBgpLocalAS(LocalAS)
 
-        print(L3Out2Post.tostring())
+        print('Connecting To: ' + apicUrl + ' and posting: \n' + str(L3Out2Post.tostring()))
+        response = postJson(L3Out2Post.tostring())
+        print('Response-Code is: ' + str(response))
+
+
