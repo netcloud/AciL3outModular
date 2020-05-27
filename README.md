@@ -1,10 +1,10 @@
 # ACI Modular L3Out
 
-Python Modul for configuring ACI L3Outs on a Modular bases.
+Python Module for configuring ACI L3Outs on a Modular bases.
 
 ## Getting Started
 
-Install Modul via pip install and check examples folder.
+Install Module via pip install and check examples folder.
 
 pip install --upgrade git+https://github.com/netcloudag/AciL3outModular.git
 
@@ -31,7 +31,7 @@ pip install --upgrade git+https://github.com/netcloudag/AciL3outModular.git
 
 ## Running the tests
 
-Tests are under constructions;-)))
+Simple UnitTest is under test Folder
 
 ## Contributing
 
