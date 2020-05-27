@@ -40,8 +40,7 @@ of conduct, and the process for submitting pull requests to this project.
 
 ## Versioning
 
-We use `https://docs.netcloud.local/docs/rtd-doku/en/latest/ncgit.html#versioning` as versioning policy. For the versions 
-available, see the [tags on this repository](https://github.com/netcloudag/AciL3outModular/tags). 
+For the versions available, see the [tags on this repository](https://github.com/netcloudag/AciL3outModular/tags). 
 
 ## Authors
 
