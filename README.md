@@ -9,9 +9,7 @@ the JSON which could be posted to the APIC.
 
 ## Getting Started
 
-Install Module via pip install and check examples folder.
-
-pip install --upgrade git+https://github.com/netcloudag/AciL3outModular.git
+Install Module via pip install or git clone. Please see Section Installing below...
 
 ```
 from L3Out import ModularL3Out
@@ -32,6 +30,14 @@ Python 3.7.X
 
 ```
 pip install --upgrade git+https://github.com/netcloudag/AciL3outModular.git
+```
+
+Or
+
+```
+git clone https://github.com/netcloudag/AciL3outModular.git
+cd AciL3outModular
+pip install -r requirements.txt
 ```
 
 ## Running the tests
@@ -59,8 +65,17 @@ Please - see the [LICENSE.md](https://github.com/netcloudag/AciL3outModular/blob
 ## Example with Sandbox https://sandboxapicdc.cisco.com
 
 This example is done with the script examples/script_eBGP.py
-APIC Access-Credential must be inserted in examples/settings.conf
+APIC Access-Credential must be inserted in examples/settings.conf like:
+
+```
+[APIC]
+ip = sandboxapicdc.cisco.com
+user = admin
+password = PwdOfSandboxApic
+```
+
 The APIC Tenant must be existing!
+
 The Script can be tested on all Cisco ACI APICs including the Simulator. The Supported APIC Versions are 2, 3 and 4.
 
 In the beginning the Sandbox APIC is configured without the L3Outs:
