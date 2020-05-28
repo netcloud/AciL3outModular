@@ -64,12 +64,12 @@ The Script can be tested on all Cisco ACI APICs including the Simulator. The Sup
 
 In the beginning the Sandbox APIC is configured without the L3Outs:
 
-![alt text](blob/master/docs/images/clean_fabric.jpg)
+![alt text](/docs/images/clean_fabric.jpg)
 
 Then we run the script:
 
-![alt text](blob/master/docs/images/script_run.jpg)
+![alt text](/docs/images/script_run.jpg)
 
 The Result in the Sandbox APIC is:
 
-![alt text](blob/master/docs/images/after_post.jpg)
+![alt text](/docs/images/after_post.jpg)
