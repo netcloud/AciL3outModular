@@ -74,3 +74,7 @@ Then we run the script:
 The Result in the Sandbox APIC is:
 
 ![L3Out posted](/docs/images/after_post.jpg)
+
+
+
+
