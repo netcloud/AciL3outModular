@@ -1,5 +1,7 @@
 # ACI Modular L3Out
 
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/netcloudag/AciL3outModular)
+
 Python Module for configuring ACI L3Outs on a Modular bases.
 Currently Supported is Static- and BGP-Routing (inclusive Multicast). 
 The Module Provide an abstraction Layer in Form of Python Objects and gives back 
@@ -53,7 +55,6 @@ For the versions available, see the [tags on this repository](https://github.com
 
 Please - see the [LICENSE.md](https://github.com/netcloudag/AciL3outModular/blob/master/LICENSE.md) file for details. 
 
-[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/netcloudag/AciL3outModular)
 
 ## Example with Sandbox https://sandboxapicdc.cisco.com
 
