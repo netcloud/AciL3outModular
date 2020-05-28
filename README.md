@@ -55,7 +55,7 @@ Please - see the [LICENSE.md](https://github.com/netcloudag/AciL3outModular/blob
 
 [![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/netcloudag/AciL3outModular)
 
-## Example to Sandbox https://sandboxapicdc.cisco.com
+## Example with Sandbox https://sandboxapicdc.cisco.com
 
 This example is done with the script examples/script_eBGP.py
 APIC Access-Credential must be inserted in examples/settings.conf
